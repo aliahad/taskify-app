@@ -14,6 +14,9 @@
 		895C21E927558B120046B3A3 /* taskify_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 895C21E727558B120046B3A3 /* taskify_app.xcdatamodeld */; };
 		895C21EB27558B130046B3A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895C21EA27558B130046B3A3 /* Assets.xcassets */; };
 		895C21EE27558B130046B3A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 895C21EC27558B130046B3A3 /* LaunchScreen.storyboard */; };
+		943EB761275B1E7200CCCECD /* Tasker+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943EB75F275B1E7200CCCECD /* Tasker+CoreDataClass.swift */; };
+		943EB762275B1E7200CCCECD /* Tasker+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943EB760275B1E7200CCCECD /* Tasker+CoreDataProperties.swift */; };
+		943EB769275B1F9000CCCECD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943EB768275B1F9000CCCECD /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		895C21EA27558B130046B3A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		895C21ED27558B130046B3A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		895C21EF27558B130046B3A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		943EB75F275B1E7200CCCECD /* Tasker+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasker+CoreDataClass.swift"; sourceTree = "<group>"; };
+		943EB760275B1E7200CCCECD /* Tasker+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasker+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		943EB768275B1F9000CCCECD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +48,7 @@
 		895C21D227558B120046B3A3 = {
 			isa = PBXGroup;
 			children = (
+				943EB765275B1EB800CCCECD /* Entity */,
 				895C21DD27558B120046B3A3 /* taskify-app */,
 				895C21DC27558B120046B3A3 /* Products */,
 			);
@@ -58,6 +65,7 @@
 		895C21DD27558B120046B3A3 /* taskify-app */ = {
 			isa = PBXGroup;
 			children = (
+				943EB767275B1F6B00CCCECD /* ViewControllers */,
 				895C21DE27558B120046B3A3 /* AppDelegate.swift */,
 				895C21E027558B120046B3A3 /* SceneDelegate.swift */,
 				895C21E227558B120046B3A3 /* ViewController.swift */,
@@ -68,6 +76,23 @@
 				895C21E727558B120046B3A3 /* taskify_app.xcdatamodeld */,
 			);
 			path = "taskify-app";
+			sourceTree = "<group>";
+		};
+		943EB765275B1EB800CCCECD /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				943EB75F275B1E7200CCCECD /* Tasker+CoreDataClass.swift */,
+				943EB760275B1E7200CCCECD /* Tasker+CoreDataProperties.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		943EB767275B1F6B00CCCECD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				943EB768275B1F9000CCCECD /* SignUpViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +166,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				895C21E327558B120046B3A3 /* ViewController.swift in Sources */,
+				943EB769275B1F9000CCCECD /* SignUpViewController.swift in Sources */,
 				895C21DF27558B120046B3A3 /* AppDelegate.swift in Sources */,
 				895C21E127558B120046B3A3 /* SceneDelegate.swift in Sources */,
+				943EB761275B1E7200CCCECD /* Tasker+CoreDataClass.swift in Sources */,
 				895C21E927558B120046B3A3 /* taskify_app.xcdatamodeld in Sources */,
+				943EB762275B1E7200CCCECD /* Tasker+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
