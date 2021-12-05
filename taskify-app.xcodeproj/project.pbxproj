@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A7B99AB275B21AE0097D776 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7B99AA275B21AE0097D776 /* LoginViewController.swift */; };
+		0A7FD9B8275D669C00702928 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FD9B7275D669C00702928 /* Configs.swift */; };
 		895C21DF27558B120046B3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C21DE27558B120046B3A3 /* AppDelegate.swift */; };
 		895C21E127558B120046B3A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C21E027558B120046B3A3 /* SceneDelegate.swift */; };
 		895C21E327558B120046B3A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C21E227558B120046B3A3 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		0A7B99AA275B21AE0097D776 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0A7FD9B7275D669C00702928 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		895C21DB27558B120046B3A3 /* taskify-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "taskify-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C21DE27558B120046B3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		895C21E027558B120046B3A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				895C21EC27558B130046B3A3 /* LaunchScreen.storyboard */,
 				895C21EF27558B130046B3A3 /* Info.plist */,
 				895C21E727558B120046B3A3 /* taskify_app.xcdatamodeld */,
+				0A7FD9B7275D669C00702928 /* Configs.swift */,
 			);
 			path = "taskify-app";
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				942BE6FA275C7528009FA82C /* UserType.swift in Sources */,
 				943EB769275B1F9000CCCECD /* SignUpViewController.swift in Sources */,
 				895C21DF27558B120046B3A3 /* AppDelegate.swift in Sources */,
+				0A7FD9B8275D669C00702928 /* Configs.swift in Sources */,
 				895C21E127558B120046B3A3 /* SceneDelegate.swift in Sources */,
 				942BE6ED275C71BD009FA82C /* User+CoreDataClass.swift in Sources */,
 				0A7B99AB275B21AE0097D776 /* LoginViewController.swift in Sources */,
