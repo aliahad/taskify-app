@@ -8,5 +8,5 @@
 import Foundation
 
 class Configs {
-    static var loggedInUserEmail: String = ""
+    static var loggedInUserEmail: String = "add@gmail.com"
 }
