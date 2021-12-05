@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H1519" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Requester" representedClassName="Requester" syncable="YES" codeGenerationType="class">
+        <attribute name="contact" attributeType="String"/>
+        <attribute name="email" attributeType="String"/>
+        <attribute name="gender" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="password" attributeType="String"/>
+    </entity>
     <entity name="Tasker" representedClassName="Tasker" syncable="YES">
         <attribute name="contact" attributeType="String"/>
         <attribute name="email" attributeType="String"/>
@@ -9,5 +16,6 @@
     </entity>
     <elements>
         <element name="Tasker" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Requester" positionX="-54" positionY="27" width="128" height="118"/>
     </elements>
 </model>
