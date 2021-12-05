@@ -8,5 +8,5 @@
 import Foundation
 
 class Configs {
-    static var loggedINUserEmail: String = ""
+    static var loggedInUserEmail: String = ""
 }

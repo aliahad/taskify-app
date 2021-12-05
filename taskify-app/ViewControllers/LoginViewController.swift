@@ -39,12 +39,12 @@ class LoginViewController: UIViewController {
             
             let request: NSFetchRequest<User> = User.fetchRequest()
             request.fetchLimit = 1
-            request.predicate = NSPredicate(format: "email == %@ AND password = %@", email as! CVarArg, password as! CVarArg)
+            request.predicate = NSPredicate(format: "email == %@ AND password = %@", email!, password!)
             
             do {
                 let user = try context.fetch(request)
                 if(user.first != nil){
-                    Configs.loggedINUserEmail = (user.first?.email)!
+                    Configs.loggedInUserEmail = (user.first?.email)!
                 } else {
                     print("Login Credentials not correct")
                 }
