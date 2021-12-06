@@ -1,13 +1,13 @@
 //
-//  TaskerTaskViewController.swift
+//  AddTaskViewController.swift
 //  taskify-app
 //
-//  Created by Ali Ahad
+//  Created by user198241 on 12/6/21.
 //
 
 import UIKit
 
-class TaskerTaskViewController: UIViewController {
+class AddTaskViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

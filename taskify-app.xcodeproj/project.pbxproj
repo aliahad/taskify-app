@@ -37,6 +37,7 @@
 		9957901F275DA0CC00DE6855 /* RequesterTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9957901E275DA0CC00DE6855 /* RequesterTaskViewController.swift */; };
 		99579025275DAA3800DE6855 /* RequesterTaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99579023275DAA3800DE6855 /* RequesterTaskViewCell.swift */; };
 		99579029275DB7ED00DE6855 /* RequesterTaskViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99579024275DAA3800DE6855 /* RequesterTaskViewCell.xib */; };
+		996A1659275E997A00B9CBF3 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996A1658275E997A00B9CBF3 /* AddTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		9957901E275DA0CC00DE6855 /* RequesterTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequesterTaskViewController.swift; sourceTree = "<group>"; };
 		99579023275DAA3800DE6855 /* RequesterTaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequesterTaskViewCell.swift; sourceTree = "<group>"; };
 		99579024275DAA3800DE6855 /* RequesterTaskViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequesterTaskViewCell.xib; sourceTree = "<group>"; };
+		996A1658275E997A00B9CBF3 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				992909CC275DC4BC00F7C673 /* RequesterDashboardViewController.swift */,
 				8960FF9E275E88E800559EAF /* TaskerDashboardViewController.swift */,
 				8960FFA1275E890C00559EAF /* TaskerTaskViewController.swift */,
+				996A1658275E997A00B9CBF3 /* AddTaskViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				0A7FD9B8275D669C00702928 /* Configs.swift in Sources */,
 				895C21E127558B120046B3A3 /* SceneDelegate.swift in Sources */,
 				897B387A275E975D00DF6D53 /* TaskFeedback+CoreDataProperties.swift in Sources */,
+				996A1659275E997A00B9CBF3 /* AddTaskViewController.swift in Sources */,
 				942BE6ED275C71BD009FA82C /* User+CoreDataClass.swift in Sources */,
 				897B3879275E975D00DF6D53 /* TaskFeedback+CoreDataClass.swift in Sources */,
 				9957901F275DA0CC00DE6855 /* RequesterTaskViewController.swift in Sources */,
