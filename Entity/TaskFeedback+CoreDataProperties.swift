@@ -19,6 +19,7 @@ extension TaskFeedback {
     @NSManaged public var rating: Int16
     @NSManaged public var review: String?
     @NSManaged public var time: Date?
+    @NSManaged public var task: Task?
 
 }
 

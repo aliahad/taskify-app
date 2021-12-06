@@ -18,6 +18,8 @@ extension TaskProposal {
 
     @NSManaged public var status: String?
     @NSManaged public var submissionTime: Date?
+    @NSManaged public var task: Task?
+    @NSManaged public var tasker: User?
 
 }
 
