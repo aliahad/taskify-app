@@ -675,6 +675,9 @@
                                     <segment title="In Progress"/>
                                     <segment title="Completed"/>
                                 </segments>
+                                <connections>
+                                    <action selector="taskFilterChanged:" destination="I44-rH-M27" eventType="valueChanged" id="BhU-he-9ks"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l8b-Ob-jLy">
                                 <rect key="frame" x="5" y="185" width="365" height="433"/>
@@ -711,6 +714,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="6sc-oZ-8Fg"/>
                     <connections>
+                        <outlet property="taskFilterControl" destination="Hl1-NW-O7u" id="0PL-lc-1D7"/>
                         <outlet property="taskTableView" destination="l8b-Ob-jLy" id="KZw-U7-ghb"/>
                     </connections>
                 </viewController>
@@ -884,11 +888,14 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZuA-xS-SPN">
                                 <rect key="frame" x="10" y="129" width="355" height="32"/>
                                 <segments>
-                                    <segment title="All"/>
-                                    <segment title="Pending"/>
+                                    <segment title="Available"/>
+                                    <segment title="Applied"/>
                                     <segment title="In Progress"/>
                                     <segment title="Completed"/>
                                 </segments>
+                                <connections>
+                                    <action selector="taskFilterChanged:" destination="Af0-Wp-jti" eventType="valueChanged" id="dOU-fP-oCZ"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ccE-fB-JnX">
                                 <rect key="frame" x="5" y="185" width="365" height="433"/>
@@ -913,7 +920,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="6nR-0F-bUE"/>
                     <connections>
-                        <outlet property="taskTableView" destination="ccE-fB-JnX" id="FWQ-fz-AL8"/>
+                        <outlet property="taskFilterControl" destination="ZuA-xS-SPN" id="nL4-n7-nPz"/>
+                        <outlet property="taskTableView" destination="ccE-fB-JnX" id="F0w-eF-BPi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zl-2g-o5P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

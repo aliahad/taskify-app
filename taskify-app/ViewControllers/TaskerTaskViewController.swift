@@ -6,25 +6,90 @@
 //
 
 import UIKit
+import CoreData
 
-class TaskerTaskViewController: UIViewController {
-
+class TaskerTaskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var taskFilterControl: UISegmentedControl!
+    @IBOutlet weak var taskTableView: UITableView!
+    
+    var taskList: [Task] = [];
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let nib = UINib(nibName: "TaskerTaskViewCell", bundle: nil)
+        taskTableView.register(nib, forCellReuseIdentifier: "TaskerTaskViewCell")
+        taskTableView.delegate = self
+        taskTableView.dataSource = self
+        
+        fetchTaskData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+    private func fetchTaskData(status: String? = nil) {
+        let request: NSFetchRequest<Task> = Task.fetchRequest()
+        
+        if (status != nil) {
+            request.predicate = NSPredicate(format: "status == %@", status!)
+        }
+        
+        do {
+            self.taskList = try context.fetch(request)
+            self.taskTableView.reloadData()
+        } catch {
+            print ("Error getting user")
+        }
+        
+    }
+    
+    @IBAction func taskFilterChanged(_ sender: UISegmentedControl) {
+        let selectedIndex = taskFilterControl.selectedSegmentIndex
+        
+        switch selectedIndex {
+        case 0:
+            fetchTaskData(status: "CREATED")
+        case 1:
+            fetchTaskData(status: "APPLIED")
+        case 2:
+            fetchTaskData(status: "IN_PROGRESS")
+        case 3:
+            fetchTaskData(status: "COMPLETED")
+        default:
+            fetchTaskData(status: "CREATED")
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return taskList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = taskTableView.dequeueReusableCell(withIdentifier: "TaskerTaskViewCell",
+                                                     for: indexPath) as! TaskerTaskViewCell
+        
+        //GetData and place it in xib file
+        
+        let task = self.taskList[indexPath.row]
+        
+        cell.taskTitle.text = task.title
+        cell.taskDescription.text = task.detail
+        cell.taskHourRate.text = String(task.ratePerHour)
+        cell.taskNumOfHours.text = String(task.hours)
+        cell.taskPostedBy.text = "Posted by \(task.requester.name)"
+        cell.taskLocation.text = task.location.city
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        cell.taskDate.text = formatter.string(from: task.startDate)
+        
+        //add styling
+        self.taskTableView.rowHeight = 90.0
+        return cell
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-
+    
     /*
     // MARK: - Navigation
 
