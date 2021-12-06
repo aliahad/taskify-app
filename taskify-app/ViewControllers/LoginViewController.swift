@@ -45,6 +45,12 @@ class LoginViewController: UIViewController {
                 let user = try context.fetch(request)
                 if(user.first != nil){
                     Configs.loggedInUserEmail = (user.first?.email)!
+                    
+                    if (userType.selectedSegmentIndex == 0) {
+                        self.performSegue(withIdentifier: "requesterDashboardSegue", sender: self)
+                    } else {
+                        self.performSegue(withIdentifier: "taskerDashboardSegue", sender: self)
+                    }
                 } else {
                     print("Login Credentials not correct")
                 }

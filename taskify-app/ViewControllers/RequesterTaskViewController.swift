@@ -11,8 +11,6 @@ import CoreData
 class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var taskTableView: UITableView!
-    @IBOutlet weak var filterControl: UISegmentedControl!
-    
     var taskList: [Task] = [];
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -28,19 +26,16 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         fetchTaskData()
     }
     
-    private func fetchTaskData(status: String? = nil) {
+    private func fetchTaskData() {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
-        
-        if (status != nil) {
-            request.predicate = NSPredicate(format: "status == %@", status!)
-        }
-        
+
         do {
             self.taskList = try context.fetch(request)
             self.taskTableView.reloadData()
         } catch {
             print ("Error getting user")
         }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,24 +60,6 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         //add styling
         self.taskTableView.rowHeight = 85.0
         return cell
-    }
-    
-    @IBAction func filterTasksValueChanged(_ sender: UISegmentedControl) {
-        
-        let currentIndex = filterControl.selectedSegmentIndex
-        
-        switch currentIndex {
-        case 0:
-            fetchTaskData()
-        case 1:
-            fetchTaskData(status: "CREATED")
-        case 2:
-            fetchTaskData(status: "IN_PROGRESS")
-        case 3:
-            fetchTaskData(status: "COMPLETED")
-        default:
-            fetchTaskData()
-        }
     }
     
 

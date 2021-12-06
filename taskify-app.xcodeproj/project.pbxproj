@@ -19,6 +19,8 @@
 		895C21E927558B120046B3A3 /* taskify_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 895C21E727558B120046B3A3 /* taskify_app.xcdatamodeld */; };
 		895C21EB27558B130046B3A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895C21EA27558B130046B3A3 /* Assets.xcassets */; };
 		895C21EE27558B130046B3A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 895C21EC27558B130046B3A3 /* LaunchScreen.storyboard */; };
+		8960FF9F275E88E800559EAF /* TaskerDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960FF9E275E88E800559EAF /* TaskerDashboardViewController.swift */; };
+		8960FFA2275E890C00559EAF /* TaskerTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960FFA1275E890C00559EAF /* TaskerTaskViewController.swift */; };
 		942BE6ED275C71BD009FA82C /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942BE6EB275C71BD009FA82C /* User+CoreDataClass.swift */; };
 		942BE6EE275C71BD009FA82C /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942BE6EC275C71BD009FA82C /* User+CoreDataProperties.swift */; };
 		942BE6FA275C7528009FA82C /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942BE6F9275C7528009FA82C /* UserType.swift */; };
@@ -46,6 +48,8 @@
 		895C21EA27558B130046B3A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		895C21ED27558B130046B3A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		895C21EF27558B130046B3A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8960FF9E275E88E800559EAF /* TaskerDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskerDashboardViewController.swift; sourceTree = "<group>"; };
+		8960FFA1275E890C00559EAF /* TaskerTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskerTaskViewController.swift; sourceTree = "<group>"; };
 		942BE6EB275C71BD009FA82C /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		942BE6EC275C71BD009FA82C /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		942BE6F9275C7528009FA82C /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 				0A7FD9BA275D6BCD00702928 /* EditProfileViewController.swift */,
 				9957901E275DA0CC00DE6855 /* RequesterTaskViewController.swift */,
 				992909CC275DC4BC00F7C673 /* RequesterDashboardViewController.swift */,
+				8960FF9E275E88E800559EAF /* TaskerDashboardViewController.swift */,
+				8960FFA1275E890C00559EAF /* TaskerTaskViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -219,9 +225,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A7FD9BB275D6BCD00702928 /* EditProfileViewController.swift in Sources */,
+				8960FFA2275E890C00559EAF /* TaskerTaskViewController.swift in Sources */,
 				895C21E327558B120046B3A3 /* ViewController.swift in Sources */,
 				892E8FE6275D8021006CF2EC /* Task+CoreDataClass.swift in Sources */,
 				942BE6FE275C755C009FA82C /* Gender.swift in Sources */,
+				8960FF9F275E88E800559EAF /* TaskerDashboardViewController.swift in Sources */,
 				992909CD275DC4BC00F7C673 /* RequesterDashboardViewController.swift in Sources */,
 				942BE6FA275C7528009FA82C /* UserType.swift in Sources */,
 				943EB769275B1F9000CCCECD /* SignUpViewController.swift in Sources */,
