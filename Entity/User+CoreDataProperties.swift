@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  taskify-app
 //
-//  Created by Niraj Sutariya
+//  Created by Ali Ahad
 //
 //
 
@@ -16,12 +16,12 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var email: String?
-    @NSManaged public var type: String?
     @NSManaged public var contact: String?
-    @NSManaged public var password: String?
+    @NSManaged public var email: String?
     @NSManaged public var gender: String?
+    @NSManaged public var name: String?
+    @NSManaged public var password: String?
+    @NSManaged public var type: String?
 
 }
 
