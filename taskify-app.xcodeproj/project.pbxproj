@@ -25,6 +25,7 @@
 		942BE6FE275C755C009FA82C /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942BE6FD275C755C009FA82C /* Gender.swift */; };
 		943EB769275B1F9000CCCECD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943EB768275B1F9000CCCECD /* SignUpViewController.swift */; };
 		943EB76C275B21D300CCCECD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943EB76B275B21D300CCCECD /* ProfileViewController.swift */; };
+		992909CD275DC4BC00F7C673 /* RequesterDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992909CC275DC4BC00F7C673 /* RequesterDashboardViewController.swift */; };
 		9957901F275DA0CC00DE6855 /* RequesterTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9957901E275DA0CC00DE6855 /* RequesterTaskViewController.swift */; };
 		99579025275DAA3800DE6855 /* RequesterTaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99579023275DAA3800DE6855 /* RequesterTaskViewCell.swift */; };
 		99579029275DB7ED00DE6855 /* RequesterTaskViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99579024275DAA3800DE6855 /* RequesterTaskViewCell.xib */; };
@@ -51,6 +52,7 @@
 		942BE6FD275C755C009FA82C /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		943EB768275B1F9000CCCECD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		943EB76B275B21D300CCCECD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		992909CC275DC4BC00F7C673 /* RequesterDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequesterDashboardViewController.swift; sourceTree = "<group>"; };
 		9957901E275DA0CC00DE6855 /* RequesterTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequesterTaskViewController.swift; sourceTree = "<group>"; };
 		99579023275DAA3800DE6855 /* RequesterTaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequesterTaskViewCell.swift; sourceTree = "<group>"; };
 		99579024275DAA3800DE6855 /* RequesterTaskViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequesterTaskViewCell.xib; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				0A7B99AA275B21AE0097D776 /* LoginViewController.swift */,
 				0A7FD9BA275D6BCD00702928 /* EditProfileViewController.swift */,
 				9957901E275DA0CC00DE6855 /* RequesterTaskViewController.swift */,
+				992909CC275DC4BC00F7C673 /* RequesterDashboardViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				895C21E327558B120046B3A3 /* ViewController.swift in Sources */,
 				892E8FE6275D8021006CF2EC /* Task+CoreDataClass.swift in Sources */,
 				942BE6FE275C755C009FA82C /* Gender.swift in Sources */,
+				992909CD275DC4BC00F7C673 /* RequesterDashboardViewController.swift in Sources */,
 				942BE6FA275C7528009FA82C /* UserType.swift in Sources */,
 				943EB769275B1F9000CCCECD /* SignUpViewController.swift in Sources */,
 				99579025275DAA3800DE6855 /* RequesterTaskViewCell.swift in Sources */,
