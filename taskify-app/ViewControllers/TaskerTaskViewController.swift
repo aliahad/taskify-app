@@ -77,18 +77,35 @@ class TaskerTaskViewController: UIViewController, UITableViewDataSource, UITable
         cell.taskDescription.text = task.detail
         cell.taskHourRate.text = String(task.ratePerHour)
         cell.taskNumOfHours.text = String(task.hours)
-        cell.taskPostedBy.text = "Posted by \(task.requester.name)"
-        cell.taskLocation.text = task.location.city
-        
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        cell.taskDate.text = formatter.string(from: task.startDate)
+        cell.taskPostedBy.text = "Posted by \(task.requester?.name)"
+        cell.taskLocation.text = task.location?.city
+        cell.taskDate.text = formatDate(date: task.startDate!)
         
         //add styling
         self.taskTableView.rowHeight = 90.0
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let viewController = storyboard?.instantiateViewController(identifier: "ApplyTaskViewController") as?
+            ApplyTaskViewController{
+                viewController.taskTitle.text = self.taskList[indexPath.row].title
+                viewController.taskDescription.text = self.taskList[indexPath.row].description
+                viewController.taskNumOfHours.text = String(self.taskList[indexPath.row].hours)
+                viewController.taskHourRate.text = String(self.taskList[indexPath.row].ratePerHour)
+                viewController.taskPostedBy.text = self.taskList[indexPath.row].requester?.name
+                viewController.taskStartDate.text = formatDate(date: self.taskList[indexPath.row].startDate!)
+            
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
+    }
+    
+    private func formatDate(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        
+        return formatter.string(from: date)
+    }
     
     /*
     // MARK: - Navigation

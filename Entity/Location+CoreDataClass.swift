@@ -2,7 +2,7 @@
 //  Location+CoreDataClass.swift
 //  taskify-app
 //
-//  Created by Ali Ahad
+//  Created by Sohail Shiraj
 //
 //
 

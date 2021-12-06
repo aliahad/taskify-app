@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  taskify-app
 //
-//  Created by Ali Ahad
+//  Created by Niraj Sutariya
 //
 //
 
