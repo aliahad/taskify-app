@@ -674,6 +674,9 @@
                                     <segment title="In Progress"/>
                                     <segment title="Completed"/>
                                 </segments>
+                                <connections>
+                                    <action selector="filterTasksValueChanged:" destination="I44-rH-M27" eventType="valueChanged" id="d5S-rk-PGa"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l8b-Ob-jLy">
                                 <rect key="frame" x="5" y="185" width="404" height="677"/>
@@ -697,6 +700,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="filterControl" destination="Hl1-NW-O7u" id="9a0-e4-QbQ"/>
                         <outlet property="taskTableView" destination="l8b-Ob-jLy" id="KZw-U7-ghb"/>
                     </connections>
                 </viewController>
