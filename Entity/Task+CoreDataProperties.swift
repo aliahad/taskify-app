@@ -16,19 +16,19 @@ extension Task {
         return NSFetchRequest<Task>(entityName: "Task")
     }
 
-    @NSManaged public var creationTime: Date?
+    @NSManaged public var creationDate: Date?
     @NSManaged public var detail: String?
-    @NSManaged public var endTime: Date?
+    @NSManaged public var endDate: Date?
     @NSManaged public var hours: Int16
     @NSManaged public var ratePerHour: Int16
-    @NSManaged public var startTime: Date?
+    @NSManaged public var startDate: Date?
     @NSManaged public var status: String?
     @NSManaged public var title: String?
-    @NSManaged public var tasker: User?
-    @NSManaged public var requester: User?
+    @NSManaged public var feeback: TaskFeedback?
     @NSManaged public var location: Location?
     @NSManaged public var proposals: NSSet?
-    @NSManaged public var feeback: TaskFeedback?
+    @NSManaged public var requester: User?
+    @NSManaged public var tasker: User?
 
 }
 

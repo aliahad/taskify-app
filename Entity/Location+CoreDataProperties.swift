@@ -16,9 +16,9 @@ extension Location {
         return NSFetchRequest<Location>(entityName: "Location")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var country: String?
     @NSManaged public var city: String?
+    @NSManaged public var country: String?
+    @NSManaged public var name: String?
     @NSManaged public var postalCode: String?
     @NSManaged public var state: String?
 
