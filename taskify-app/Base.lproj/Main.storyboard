@@ -52,7 +52,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p0H-IS-DKr">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0H-IS-DKr">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="yi2-tp-OgQ">
@@ -200,7 +200,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExZ-5d-apu">
-                                        <rect key="frame" x="102" y="165" width="210" height="40"/>
+                                        <rect key="frame" x="102" y="165" width="210.5" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="gvr-Nr-EiO"/>
                                         </constraints>
@@ -210,14 +210,14 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="ExZ-5d-apu" firstAttribute="leading" secondItem="p0H-IS-DKr" secondAttribute="leading" constant="102" id="FoP-fF-KVX"/>
+                                    <constraint firstAttribute="bottom" secondItem="yi2-tp-OgQ" secondAttribute="bottom" constant="84" id="D3A-zp-Uoi"/>
+                                    <constraint firstAttribute="trailing" secondItem="yi2-tp-OgQ" secondAttribute="trailing" constant="42" id="IIN-zb-gG1"/>
                                     <constraint firstItem="ExZ-5d-apu" firstAttribute="top" secondItem="vKx-YH-G9x" secondAttribute="bottom" constant="25" id="O10-ab-tKD"/>
-                                    <constraint firstItem="yi2-tp-OgQ" firstAttribute="centerX" secondItem="p0H-IS-DKr" secondAttribute="centerX" id="SVr-JA-xH9"/>
-                                    <constraint firstItem="ExZ-5d-apu" firstAttribute="centerX" secondItem="p0H-IS-DKr" secondAttribute="centerX" id="Tkd-x4-8YA"/>
-                                    <constraint firstItem="vKx-YH-G9x" firstAttribute="top" secondItem="p0H-IS-DKr" secondAttribute="top" constant="20" id="fBW-v7-BM8"/>
-                                    <constraint firstAttribute="trailing" secondItem="ExZ-5d-apu" secondAttribute="trailing" constant="91.5" id="hBw-yE-cl3"/>
+                                    <constraint firstItem="vKx-YH-G9x" firstAttribute="centerX" secondItem="ExZ-5d-apu" secondAttribute="centerX" id="fFW-YN-XaC"/>
+                                    <constraint firstItem="vKx-YH-G9x" firstAttribute="top" secondItem="gjP-ct-0kF" secondAttribute="top" constant="20" id="fwH-Im-Bg0"/>
                                     <constraint firstItem="yi2-tp-OgQ" firstAttribute="top" secondItem="ExZ-5d-apu" secondAttribute="bottom" constant="85" id="idJ-4x-xOx"/>
-                                    <constraint firstItem="vKx-YH-G9x" firstAttribute="centerX" secondItem="p0H-IS-DKr" secondAttribute="centerX" id="q91-EL-2Ue"/>
+                                    <constraint firstItem="ExZ-5d-apu" firstAttribute="centerX" secondItem="yi2-tp-OgQ" secondAttribute="centerX" id="jYE-11-9cO"/>
+                                    <constraint firstItem="vKx-YH-G9x" firstAttribute="centerX" secondItem="p0H-IS-DKr" secondAttribute="centerX" id="tNl-wZ-tbq"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="nmT-wb-bpo"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="gjP-ct-0kF"/>
@@ -226,11 +226,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="p0H-IS-DKr" secondAttribute="bottom" id="2q4-II-zW8"/>
-                            <constraint firstItem="p0H-IS-DKr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="I2n-LO-vvC"/>
-                            <constraint firstItem="p0H-IS-DKr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Rvp-if-ZTO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p0H-IS-DKr" secondAttribute="trailing" id="iPD-3W-u2t"/>
-                            <constraint firstItem="p0H-IS-DKr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="q9v-zC-BvQ"/>
+                            <constraint firstItem="p0H-IS-DKr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2Ks-QZ-g5b"/>
+                            <constraint firstItem="p0H-IS-DKr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4gr-Ap-oxK"/>
+                            <constraint firstItem="p0H-IS-DKr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sqU-mf-MGr"/>
+                            <constraint firstItem="p0H-IS-DKr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zr4-sp-iZY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wcS-X4-Ow5"/>
