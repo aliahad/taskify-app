@@ -21,9 +21,9 @@ class RequesterDashboardViewController: UIViewController {
         super.viewDidLoad()
 
         createdTasksCount.text = fetchTasksCount(status: "CREATED")
-        createdTasksCount.text = fetchTasksCount(status: "PENDING")
-        createdTasksCount.text = fetchTasksCount(status: "IN_PROGRESS")
-        createdTasksCount.text = fetchTasksCount(status: "COMPLETED")
+        pendingTasksCount.text = fetchTasksCount(status: "PENDING")
+        inProgressTasksCount.text = fetchTasksCount(status: "IN_PROGRESS")
+        completedTasksCount.text = fetchTasksCount(status: "COMPLETED")
     }
     
     override func viewWillAppear(_ animated: Bool) {

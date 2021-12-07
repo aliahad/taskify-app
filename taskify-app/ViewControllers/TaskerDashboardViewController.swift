@@ -6,13 +6,24 @@
 //
 
 import UIKit
+import CoreData
 
 class TaskerDashboardViewController: UIViewController {
 
+    @IBOutlet weak var createdTasksCount: UILabel!
+    @IBOutlet weak var pendingTasksCount: UILabel!
+    @IBOutlet weak var inProgressTasksCount: UILabel!
+    @IBOutlet weak var completedTasksCount: UILabel!
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        createdTasksCount.text = fetchTasksCount(status: "CREATED")
+        pendingTasksCount.text = fetchTasksCount(status: "PENDING")
+        inProgressTasksCount.text = fetchTasksCount(status: "IN_PROGRESS")
+        completedTasksCount.text = fetchTasksCount(status: "COMPLETED")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -20,15 +31,18 @@ class TaskerDashboardViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func fetchTasksCount(status: String) -> String {
+        let request: NSFetchRequest<Task> = Task.fetchRequest()
+        request.predicate = NSPredicate(format: "status == %@ AND requester.email = %@", status, Configs.loggedInUserEmail)
+        
+        do {
+            let user = try context.fetch(request)
+            return String(user.count)
+        } catch {
+            print("Error while fetching tasks")
+        }
+        
+        return "0"
     }
-    */
 
 }
