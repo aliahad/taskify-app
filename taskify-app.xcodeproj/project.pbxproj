@@ -35,6 +35,8 @@
 		942BE6EE275C71BD009FA82C /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942BE6EC275C71BD009FA82C /* User+CoreDataProperties.swift */; };
 		942BE6FA275C7528009FA82C /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942BE6F9275C7528009FA82C /* UserType.swift */; };
 		942BE6FE275C755C009FA82C /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942BE6FD275C755C009FA82C /* Gender.swift */; };
+		943BDEC1275F435700D07AC0 /* TaskerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943BDEC0275F435700D07AC0 /* TaskerProfileViewController.swift */; };
+		943BDEC4275F436C00D07AC0 /* TaskerEditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943BDEC3275F436C00D07AC0 /* TaskerEditProfileViewController.swift */; };
 		943EB769275B1F9000CCCECD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943EB768275B1F9000CCCECD /* SignUpViewController.swift */; };
 		943EB76C275B21D300CCCECD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943EB76B275B21D300CCCECD /* ProfileViewController.swift */; };
 		94AF0C7A275EFC7C00A520CE /* ProposalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF0C79275EFC7C00A520CE /* ProposalViewController.swift */; };
@@ -76,6 +78,8 @@
 		942BE6EC275C71BD009FA82C /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		942BE6F9275C7528009FA82C /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		942BE6FD275C755C009FA82C /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		943BDEC0275F435700D07AC0 /* TaskerProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskerProfileViewController.swift; sourceTree = "<group>"; };
+		943BDEC3275F436C00D07AC0 /* TaskerEditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskerEditProfileViewController.swift; sourceTree = "<group>"; };
 		943EB768275B1F9000CCCECD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		943EB76B275B21D300CCCECD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		94AF0C79275EFC7C00A520CE /* ProposalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				996A1658275E997A00B9CBF3 /* AddTaskViewController.swift */,
 				8972BECE275EC4A4006C3E75 /* ApplyTaskViewController.swift */,
 				94AF0C79275EFC7C00A520CE /* ProposalViewController.swift */,
+				943BDEC0275F435700D07AC0 /* TaskerProfileViewController.swift */,
+				943BDEC3275F436C00D07AC0 /* TaskerEditProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 			files = (
 				897B3877275E975D00DF6D53 /* TaskProposal+CoreDataClass.swift in Sources */,
 				897B3875275E975D00DF6D53 /* Location+CoreDataClass.swift in Sources */,
+				943BDEC1275F435700D07AC0 /* TaskerProfileViewController.swift in Sources */,
 				0A7FD9BB275D6BCD00702928 /* EditProfileViewController.swift in Sources */,
 				897B3876275E975D00DF6D53 /* Location+CoreDataProperties.swift in Sources */,
 				8960FFA2275E890C00559EAF /* TaskerTaskViewController.swift in Sources */,
@@ -297,6 +304,7 @@
 				0A7B99AB275B21AE0097D776 /* LoginViewController.swift in Sources */,
 				895C21E927558B120046B3A3 /* taskify_app.xcdatamodeld in Sources */,
 				942BE6EE275C71BD009FA82C /* User+CoreDataProperties.swift in Sources */,
+				943BDEC4275F436C00D07AC0 /* TaskerEditProfileViewController.swift in Sources */,
 				943EB76C275B21D300CCCECD /* ProfileViewController.swift in Sources */,
 				8972BEC8275EB7F7006C3E75 /* TaskerTaskViewCell.swift in Sources */,
 				94AF0C7A275EFC7C00A520CE /* ProposalViewController.swift in Sources */,
