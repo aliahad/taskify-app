@@ -40,10 +40,10 @@ class SignUpViewController: UIViewController {
     @IBAction func registerUser(_ sender: Any) {
         if (validate()) {
             let user = User(context: self.context)
-            user.name = userName.text
-            user.email = userEmail.text
-            user.contact = userContact.text
-            user.password = userPassword.text
+            user.name = userName.text!
+            user.email = userEmail.text!
+            user.contact = userContact.text!
+            user.password = userPassword.text!
             user.gender = (userGender.selectedSegmentIndex == 0) ? Gender.Male.rawValue : Gender.Female.rawValue
             user.type = (userType.selectedSegmentIndex == 0) ? UserType.Tasker.rawValue : UserType.Requester.rawValue
             

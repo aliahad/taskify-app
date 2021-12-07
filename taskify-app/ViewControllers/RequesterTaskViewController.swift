@@ -11,6 +11,8 @@ import CoreData
 class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var taskTableView: UITableView!
+    @IBOutlet weak var taskFilterControl: UISegmentedControl!
+    
     var taskList: [Task] = [];
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -26,19 +28,13 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         fetchTaskData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-    private func fetchTaskData() {
+    private func fetchTaskData(status: String? = nil) {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
-
+        
+        if (status != nil) {
+            request.predicate = NSPredicate(format: "status == %@", status!)
+        }
+        
         do {
             self.taskList = try context.fetch(request)
             self.taskTableView.reloadData()
@@ -46,6 +42,23 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
             print ("Error getting user")
         }
         
+    }
+    
+    @IBAction func taskFilterChanged(_ sender: UISegmentedControl) {
+        let selectedIndex = taskFilterControl.selectedSegmentIndex
+        
+        switch selectedIndex {
+        case 0:
+            fetchTaskData()
+        case 1:
+            fetchTaskData(status: "CREATED")
+        case 2:
+            fetchTaskData(status: "IN_PROGRESS")
+        case 3:
+            fetchTaskData(status: "COMPLETED")
+        default:
+            fetchTaskData()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

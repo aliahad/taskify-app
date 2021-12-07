@@ -47,9 +47,9 @@ class LoginViewController: UIViewController {
                     Configs.loggedInUserEmail = (user.first?.email)!
                     
                     if (userType.selectedSegmentIndex == 0) {
-                        self.performSegue(withIdentifier: "requesterDashboardSegue", sender: self)
-                    } else {
                         self.performSegue(withIdentifier: "taskerDashboardSegue", sender: self)
+                    } else {
+                        self.performSegue(withIdentifier: "requesterDashboardSegue", sender: self)
                     }
                 } else {
                     self.view.showToast(toastMessage: "Login Credentials are not correct", duration: 2)
