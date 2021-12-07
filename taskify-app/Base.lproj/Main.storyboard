@@ -1256,8 +1256,8 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="wLz-6G-w5X">
-                                                                <rect key="frame" x="0.0" y="21" width="335" height="216"/>
+                                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="wLz-6G-w5X">
+                                                                <rect key="frame" x="0.0" y="20.5" width="335" height="216"/>
                                                             </datePicker>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Error Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uw8-u4-M7F">
                                                                 <rect key="frame" x="0.0" y="236.5" width="335" height="13.5"/>
@@ -1275,7 +1275,6 @@
                                                                 <state key="normal" title="Add Task"/>
                                                                 <connections>
                                                                     <action selector="addTask:" destination="gYn-P2-5sW" eventType="touchUpInside" id="SQb-w6-Ykj"/>
-                                                                    <action selector="updateProfile:" destination="gYn-P2-5sW" eventType="touchUpInside" id="spi-Zy-01y"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>

@@ -33,29 +33,46 @@ class AddTaskViewController: UIViewController {
         initialize();
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     func initialize() {
         resetForm();
     }
     
     @IBAction func addTask(_ sender: Any) {
         if (validate()) {
-            let task = Task()
+            let task = Task(context: self.context)
             task.title = taskTitle.text
             task.detail = taskDetail.text
             task.hours = Int16(taskHours.text!)!
             task.ratePerHour = Int16(taskPayPerHour.text!)!
             task.startDate = taskStartDate.date ?? Date()
-            
+            task.creationDate = Date()
+            task.status = "CREATED"
+            //task.location = Location()
+            //task.feeback = TaskFeedback()
             let user: User? = fetchUser()
             
             if(user != nil){
                 task.requester = user
             }
             
+            print("sohail")
+            print(user)
+            print(task)
+            
             do {
                 try context.save()
             } catch {
-                print("Error whle saving user")
+                print("Error whle saving user \(error)")
             }
         }
     

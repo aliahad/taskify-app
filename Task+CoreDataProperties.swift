@@ -2,7 +2,7 @@
 //  Task+CoreDataProperties.swift
 //  taskify-app
 //
-//  Created by Ali Ahad
+//  Created by user193589 on 12/6/21.
 //
 //
 

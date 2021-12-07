@@ -16,9 +16,9 @@
         <attribute name="startDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="status" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
-        <relationship name="feeback" maxCount="1" deletionRule="Nullify" destinationEntity="TaskFeedback" inverseName="task" inverseEntity="TaskFeedback"/>
-        <relationship name="location" maxCount="1" deletionRule="Nullify" destinationEntity="Location"/>
-        <relationship name="proposals" toMany="YES" deletionRule="Nullify" destinationEntity="TaskProposal" inverseName="task" inverseEntity="TaskProposal"/>
+        <relationship name="feeback" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TaskFeedback" inverseName="task" inverseEntity="TaskFeedback"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location"/>
+        <relationship name="proposals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TaskProposal" inverseName="task" inverseEntity="TaskProposal"/>
         <relationship name="requester" maxCount="1" deletionRule="Nullify" destinationEntity="User"/>
         <relationship name="tasker" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User"/>
     </entity>
