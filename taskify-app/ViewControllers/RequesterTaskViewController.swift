@@ -54,15 +54,15 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         
         switch selectedIndex {
         case 0:
-            fetchTaskData()
-        case 1:
             fetchTaskData(status: "CREATED")
+        case 1:
+            fetchTaskData(status: "PENDING")
         case 2:
             fetchTaskData(status: "IN_PROGRESS")
         case 3:
             fetchTaskData(status: "COMPLETED")
         default:
-            fetchTaskData()
+            fetchTaskData(status: "CREATED")
         }
     }
     
@@ -88,6 +88,24 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         //add styling
         self.taskTableView.rowHeight = 85.0
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (self.taskList[indexPath.row].status == "PENDING") {
+            if let viewController = storyboard?.instantiateViewController(identifier: "ProposalViewController") as?
+                ProposalViewController{
+                    viewController.task = self.taskList[indexPath.row]
+                
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+        }
+    }
+    
+    private func formatDate(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        
+        return formatter.string(from: date)
     }
     
 

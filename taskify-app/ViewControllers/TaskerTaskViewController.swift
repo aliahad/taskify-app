@@ -28,6 +28,11 @@ class TaskerTaskViewController: UIViewController, UITableViewDataSource, UITable
         fetchTaskData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchTaskData()
+    }
+    
     private func fetchTaskData(status: String? = nil) {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
         
@@ -51,7 +56,7 @@ class TaskerTaskViewController: UIViewController, UITableViewDataSource, UITable
         case 0:
             fetchTaskData(status: "CREATED")
         case 1:
-            fetchTaskData(status: "APPLIED")
+            fetchTaskData(status: "PENDING")
         case 2:
             fetchTaskData(status: "IN_PROGRESS")
         case 3:
@@ -89,12 +94,7 @@ class TaskerTaskViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let viewController = storyboard?.instantiateViewController(identifier: "ApplyTaskViewController") as?
             ApplyTaskViewController{
-                viewController.taskTitle.text = self.taskList[indexPath.row].title
-                viewController.taskDescription.text = self.taskList[indexPath.row].description
-                viewController.taskNumOfHours.text = String(self.taskList[indexPath.row].hours)
-                viewController.taskHourRate.text = String(self.taskList[indexPath.row].ratePerHour)
-                viewController.taskPostedBy.text = self.taskList[indexPath.row].requester?.name
-                viewController.taskStartDate.text = formatDate(date: self.taskList[indexPath.row].startDate!)
+                viewController.task = self.taskList[indexPath.row]
             
                 self.navigationController?.pushViewController(viewController, animated: true)
             }
