@@ -61,12 +61,20 @@
                                     <constraint firstItem="UP5-Hn-Gkd" firstAttribute="leading" secondItem="GF6-PE-2fW" secondAttribute="leading" constant="5" id="xhg-8S-cPu"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-s3-uOn">
+                                <rect key="frame" x="8" y="101.5" width="359" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="IeB-p2-nlC"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aao-hq-Vca"/>
                         <color key="backgroundColor" red="0.19801959399999999" green="0.18832308049999999" blue="0.33413410189999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GF6-PE-2fW" firstAttribute="centerX" secondItem="sih-n5-PmG" secondAttribute="centerX" id="BiP-cv-JYE"/>
+                            <constraint firstItem="dfZ-s3-uOn" firstAttribute="centerX" secondItem="sih-n5-PmG" secondAttribute="centerX" id="NfD-8Y-YfP"/>
                             <constraint firstItem="GF6-PE-2fW" firstAttribute="centerY" secondItem="sih-n5-PmG" secondAttribute="centerY" id="v1b-dD-eeR"/>
+                            <constraint firstItem="GF6-PE-2fW" firstAttribute="top" secondItem="dfZ-s3-uOn" secondAttribute="bottom" constant="20" id="wLG-2D-ocE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NiE-8r-g0S"/>
