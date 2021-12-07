@@ -1,9 +1,4 @@
-//
-//  UIView+Extension.swift
-//  taskify-app
-//
-//  Created by Sohail Shiraj.
-//
+// Reference: https://www.spaceotechnologies.com/ios-toast-message-animation-swift-tutorial/
 
 import UIKit
 
