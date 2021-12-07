@@ -102,9 +102,9 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         
         cell.taskTitle.text = task?.title
         cell.taskDescription.text = task?.detail
-        cell.taskHourRate.text = String(task!.ratePerHour)
-        cell.taskNumOfHours.text = String(task!.hours)
-        cell.taskDate.text = formatDate(date: (task?.startDate!)!)
+        cell.taskHourRate.text = "$\(String(task!.ratePerHour))/hour"
+        cell.taskNumOfHours.text = "\(String(task!.hours)) hours"
+        cell.taskDate.text = "Start date: \(formatDate(date: (task?.startDate!)!))"
         
         //add styling
         self.taskTableView.rowHeight = 85.0
