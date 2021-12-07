@@ -19,16 +19,16 @@ class RequesterDashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        createdTasksCount.text = fetchTasksCount(status: "CREATED")
-        pendingTasksCount.text = fetchTasksCount(status: "PENDING")
-        inProgressTasksCount.text = fetchTasksCount(status: "IN_PROGRESS")
-        completedTasksCount.text = fetchTasksCount(status: "COMPLETED")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        createdTasksCount.text = fetchTasksCount(status: "CREATED")
+        pendingTasksCount.text = fetchTasksCount(status: "PENDING")
+        inProgressTasksCount.text = fetchTasksCount(status: "IN_PROGRESS")
+        completedTasksCount.text = fetchTasksCount(status: "COMPLETED")
     }
     
     private func fetchTasksCount(status: String) -> String {

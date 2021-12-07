@@ -1,21 +1,19 @@
 //
-//  SignUpViewController.swift
+//  TaskerEditProfileViewController.swift
 //  taskify-app
 //
-//  Created by Niraj Sutariya
+//  Created by user202415 on 12/7/21.
 //
 
 import UIKit
 import CoreData
 
-class SignUpViewController: UIViewController {
+class TaskerEditProfileViewController: UIViewController {
 
-    @IBOutlet weak var userType: UISegmentedControl!
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var userContact: UITextField!
-    @IBOutlet weak var userGender: UISegmentedControl!
     
     @IBOutlet weak var userNameErrorLabel: UILabel!
     @IBOutlet weak var userEmailErrorLabel: UILabel!
@@ -26,40 +24,89 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
-        initialize();
+        // Do any additional setup after loading the view.
+        initialize()
+        fetchUserData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        initialize()
+        fetchUserData()
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     func initialize() {
         resetForm();
     }
     
-    @IBAction func registerUser(_ sender: Any) {
-        if (validate()) {
-            let user = User(context: self.context)
-            user.name = userName.text!
-            user.email = userEmail.text!
-            user.contact = userContact.text!
-            user.password = userPassword.text!
-            user.gender = (userGender.selectedSegmentIndex == 0) ? Gender.Male.rawValue : Gender.Female.rawValue
-            user.type = (userType.selectedSegmentIndex == 0) ? UserType.Tasker.rawValue : UserType.Requester.rawValue
+    private func fetchUserData() {
+        let email = Configs.loggedInUserEmail
+        
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        request.fetchLimit = 1
+        request.predicate = NSPredicate(format: "email == %@", email)
+
+        do {
+            let user = try context.fetch(request)
+            populateData(user: user[0])
+        } catch {
+            print ("Error getting user")
+        }
+        
+    }
+    
+    private func populateData(user: User) {
+        if(user != nil){
+            userName.text = user.name
+            userEmail.text = user.email
+            userContact.text = user.contact
+            userPassword.text = user.password
+        }
+        
+    }
+    
+    @IBAction func updateProfile(_ sender: Any) {
+        if(validate()){
+            let email = Configs.loggedInUserEmail
+            
+            let request: NSFetchRequest<User> = User.fetchRequest()
+            request.fetchLimit = 1
+            request.predicate = NSPredicate(format: "email == %@", email)
             
             do {
+                let user = try context.fetch(request)
+                let objUpdate = user[0] as! NSManagedObject
+                objUpdate.setValue(userName.text, forKey: "name")
+                objUpdate.setValue(userEmail.text, forKey: "email")
+                objUpdate.setValue(userContact.text, forKey: "contact")
+                objUpdate.setValue(userPassword.text, forKey: "password")
                 try context.save()
+                self.view.showToast(toastMessage: "Profile update successfully", duration: 2.0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    self.dismiss(animated: true, completion: nil)
+                }
+                
             } catch {
-                print("Error whle saving user")
+                self.view.showToast(toastMessage: "Something went wrong!", duration: 2.0)
+                print ("Error while saving")
             }
         }
+        
     }
     
     private func resetForm() {
-        userName.text = ""
-        userEmail.text = ""
-        userPassword.text = ""
-        userContact.text = ""
+//        userName.text = ""
+//        userEmail.text = ""
+//        userPassword.text = ""
+//        userContact.text = ""
         
         resetErrors()
     }
