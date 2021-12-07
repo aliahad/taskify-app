@@ -23,6 +23,15 @@ class ProfileViewController: UIViewController {
         fetchUserData()
     }
     
+    @IBAction func logout(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchUserData()
+    }
+    
     private func fetchUserData() {
         let email = Configs.loggedInUserEmail
         

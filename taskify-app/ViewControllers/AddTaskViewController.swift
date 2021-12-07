@@ -68,7 +68,11 @@ class AddTaskViewController: UIViewController {
             do {
                 try context.save()
                 self.view.showToast(toastMessage: "Task added successfully", duration: 2.0)
-                navigationController?.popViewController(animated: true)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+//                    self.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popViewController(animated: true)
+                }
+                
             } catch {
                 print("Error whle saving user \(error)")
             }
@@ -137,14 +141,26 @@ class AddTaskViewController: UIViewController {
             isValid = false
         }
         
+        if(taskHours.text == "") {
+            taskHoursErrorLabel.text = "*Hours are required"
+            taskHoursErrorLabel.isHidden = false
+            isValid = false
+        }
+        
         if (taskHours.text != "" && !ValidateHour()) {
             taskHoursErrorLabel.text = "*Invalid Hours"
             taskHoursErrorLabel.isHidden = false
             isValid = false
         }
         
-        if (taskPayPerHour.text == "" && !ValidatePay()) {
+        if(taskPayPerHour.text == "") {
             taskPayPerHourErrorLabel.text = "*Pay per hour is required"
+            taskPayPerHourErrorLabel.isHidden = false
+            isValid = false
+        }
+        
+        if (taskPayPerHour.text != "" && !ValidatePay()) {
+            taskPayPerHourErrorLabel.text = "*Invalid Pay per hour"
             taskPayPerHourErrorLabel.isHidden = false
             isValid = false
         }
