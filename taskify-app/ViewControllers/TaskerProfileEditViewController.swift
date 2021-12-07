@@ -1,14 +1,14 @@
 //
-//  EditProfileViewController.swift
+//  TaskerProfileEditViewController.swift
 //  taskify-app
 //
-//  Created by Jignesh Kumavat.
+//  Created by user198241 on 12/7/21.
 //
 
 import UIKit
 import CoreData
 
-class EditProfileViewController: UIViewController {
+class TaskerProfileEditViewController: UIViewController {
 
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var userEmail: UITextField!
@@ -198,7 +198,7 @@ class EditProfileViewController: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    
+
     /*
     // MARK: - Navigation
 

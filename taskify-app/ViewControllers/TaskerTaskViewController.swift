@@ -85,7 +85,7 @@ class TaskerTaskViewController: UIViewController, UITableViewDataSource, UITable
         cell.taskHourRate.text = "$\(String(task.ratePerHour))/hour"
         cell.taskNumOfHours.text = "\(String(task.hours)) hours"
         cell.taskPostedBy.text = "Posted by \(task.requester!.name!)"
-        cell.taskLocation.text = task.location?.city
+        cell.taskLocation.text = "Waterloo"//task.location?.city
         cell.taskDate.text = "Start date: \(formatDate(date: task.startDate!))"
         
         //add styling

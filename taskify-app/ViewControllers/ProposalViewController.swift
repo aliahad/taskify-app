@@ -29,12 +29,23 @@ class ProposalViewController: UIViewController {
         let task = taskProposal?.task
         
         taskTitle.text = task?.title
-        taskDescription.text = task?.description
+        taskDescription.text = task?.detail
         taskNumOfHours.text = String(Int16(task!.hours))
         taskHourRate.text = String(Int16(task!.ratePerHour))
-        taskLocation.text = task?.location?.name
+//        taskLocation.text = task?.location?.name
         taskProposalFrom.text = taskProposal?.tasker?.name
+        proposalDetails.text = taskProposal?.details
         taskStartDate.text = formatDate(date: (task?.startDate)!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     @IBAction func acceptProposal(_ sender: UIButton) {
@@ -44,6 +55,10 @@ class ProposalViewController: UIViewController {
         
         do {
             try context.save()
+            self.view.showToast(toastMessage: "Proposal accepted", duration: 2.0)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.navigationController?.popViewController(animated: true)
+            }
         } catch {
             print("Error while updating task")
         }
@@ -55,6 +70,10 @@ class ProposalViewController: UIViewController {
         
         do {
             try context.save()
+            self.view.showToast(toastMessage: "Proposal accepted", duration: 2.0)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.navigationController?.popViewController(animated: true)
+            }
         } catch {
             print("Error while updating task")
         }

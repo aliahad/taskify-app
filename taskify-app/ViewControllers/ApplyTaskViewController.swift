@@ -28,11 +28,29 @@ class ApplyTaskViewController: UIViewController {
         super.viewDidLoad()
 
         taskTitle.text = task?.title
-        taskDescription.text = task?.description
+        taskDescription.text = task?.detail
         taskNumOfHours.text = String(Int16(task!.hours))
         taskHourRate.text = String(Int16(task!.ratePerHour))
         taskPostedBy.text = task?.requester?.name
         taskStartDate.text = formatDate(date: (task?.startDate)!)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     @IBAction func submitProposal(_ sender: UIButton) {
@@ -47,6 +65,10 @@ class ApplyTaskViewController: UIViewController {
         
         do {
             try context.save()
+            self.view.showToast(toastMessage: "Applied successfully", duration: 2.0)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.navigationController?.popViewController(animated: true)
+            }
         } catch {
             print("Error while saving proposal")
         }

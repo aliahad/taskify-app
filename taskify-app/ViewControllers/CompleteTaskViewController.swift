@@ -27,12 +27,30 @@ class CompleteTaskViewController: UIViewController {
         super.viewDidLoad()
 
         taskTitle.text = task?.title
-        taskDescription.text = task?.description
+        taskDescription.text = task?.detail
         taskNumOfHours.text = String(Int16(task!.hours))
         taskHourRate.text = String(Int16(task!.ratePerHour))
-        taskLocation.text = task?.location?.name
+//        taskLocation.text = task?.location?.name
         taskStartDate.text = formatDate(date: (task?.startDate)!)
         tasker.text = task?.requester?.name
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     @IBAction func completeTask(_ sender: UIButton) {
@@ -55,6 +73,10 @@ class CompleteTaskViewController: UIViewController {
         
         do {
             try context.save()
+            self.view.showToast(toastMessage: "Marked as completed", duration: 2.0)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.navigationController?.popViewController(animated: true)
+            }
         } catch {
             print("Error while updating task")
         }
