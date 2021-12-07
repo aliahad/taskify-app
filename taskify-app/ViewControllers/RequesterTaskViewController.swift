@@ -28,6 +28,11 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         fetchTaskData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchTaskData()
+    }
+    
     private func fetchTaskData(status: String? = nil) {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
         

@@ -65,12 +65,10 @@ class AddTaskViewController: UIViewController {
                 task.requester = user
             }
             
-            print("sohail")
-            print(user)
-            print(task)
-            
             do {
                 try context.save()
+                self.view.showToast(toastMessage: "Task added successfully", duration: 2.0)
+                navigationController?.popViewController(animated: true)
             } catch {
                 print("Error whle saving user \(error)")
             }
