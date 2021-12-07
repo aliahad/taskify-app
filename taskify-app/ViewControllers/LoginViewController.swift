@@ -52,6 +52,7 @@ class LoginViewController: UIViewController {
                         self.performSegue(withIdentifier: "taskerDashboardSegue", sender: self)
                     }
                 } else {
+                    self.view.showToast(toastMessage: "Login Credentials are not correct", duration: 2)
                     print("Login Credentials not correct")
                 }
             } catch {

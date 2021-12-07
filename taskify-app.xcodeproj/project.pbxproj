@@ -10,6 +10,7 @@
 		0A7B99AB275B21AE0097D776 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7B99AA275B21AE0097D776 /* LoginViewController.swift */; };
 		0A7FD9B8275D669C00702928 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FD9B7275D669C00702928 /* Configs.swift */; };
 		0A7FD9BB275D6BCD00702928 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FD9BA275D6BCD00702928 /* EditProfileViewController.swift */; };
+		0A9AC848275EC58500074C5B /* UIViewToastExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9AC847275EC58500074C5B /* UIViewToastExtension.swift */; };
 		892E8FE6275D8021006CF2EC /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E8FE4275D8021006CF2EC /* Task+CoreDataClass.swift */; };
 		892E8FE7275D8021006CF2EC /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E8FE5275D8021006CF2EC /* Task+CoreDataProperties.swift */; };
 		895C21DF27558B120046B3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C21DE27558B120046B3A3 /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 		0A7B99AA275B21AE0097D776 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0A7FD9B7275D669C00702928 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		0A7FD9BA275D6BCD00702928 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		0A9AC847275EC58500074C5B /* UIViewToastExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewToastExtension.swift; sourceTree = "<group>"; };
 		892E8FE4275D8021006CF2EC /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		892E8FE5275D8021006CF2EC /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		895C21DB27558B120046B3A3 /* taskify-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "taskify-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A9AC846275EC3C700074C5B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0A9AC847275EC58500074C5B /* UIViewToastExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		895C21D227558B120046B3A3 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +117,7 @@
 		895C21DD27558B120046B3A3 /* taskify-app */ = {
 			isa = PBXGroup;
 			children = (
+				0A9AC846275EC3C700074C5B /* Extension */,
 				99579021275DA9AF00DE6855 /* TableViewCell */,
 				942BE6F3275C73A2009FA82C /* Enum */,
 				943EB767275B1F6B00CCCECD /* ViewControllers */,
@@ -250,6 +261,7 @@
 				0A7FD9BB275D6BCD00702928 /* EditProfileViewController.swift in Sources */,
 				897B3876275E975D00DF6D53 /* Location+CoreDataProperties.swift in Sources */,
 				8960FFA2275E890C00559EAF /* TaskerTaskViewController.swift in Sources */,
+				0A9AC848275EC58500074C5B /* UIViewToastExtension.swift in Sources */,
 				895C21E327558B120046B3A3 /* ViewController.swift in Sources */,
 				897B3878275E975D00DF6D53 /* TaskProposal+CoreDataProperties.swift in Sources */,
 				892E8FE6275D8021006CF2EC /* Task+CoreDataClass.swift in Sources */,

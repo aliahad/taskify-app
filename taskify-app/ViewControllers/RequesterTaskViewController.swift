@@ -65,7 +65,7 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         cell.taskNumOfHours.text = String(task.hours)
         let formatter = DateFormatter()
         formatter.dateStyle = .short
-        cell.taskDate.text = formatter.string(from: task.startTime!)
+        cell.taskDate.text = formatter.string(from: task.startDate!)
         
         //add styling
         self.taskTableView.rowHeight = 85.0
