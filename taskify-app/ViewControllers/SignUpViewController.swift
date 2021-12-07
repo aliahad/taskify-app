@@ -49,6 +49,8 @@ class SignUpViewController: UIViewController {
             
             do {
                 try context.save()
+                self.view.showToast(toastMessage: "Registration successful, please login", duration: 2.0)
+                initialize()
             } catch {
                 print("Error whle saving user")
             }
