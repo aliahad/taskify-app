@@ -2,7 +2,7 @@
 //  TaskerProfileViewController.swift
 //  taskify-app
 //
-//  Created by user198241 on 12/7/21.
+//  Created by Jignesh Kumavat
 //
 
 import UIKit
@@ -32,6 +32,7 @@ class TaskerProfileViewController: UIViewController {
         fetchUserData()
     }
     
+    // Fetch user data from core data
     private func fetchUserData() {
         let email = Configs.loggedInUserEmail
         
@@ -48,6 +49,7 @@ class TaskerProfileViewController: UIViewController {
         
     }
     
+    // Populate user data on UI from core data
     private func populateData(user: User) {
         userName.text = user.name
         userEmail.text = user.email
@@ -55,16 +57,5 @@ class TaskerProfileViewController: UIViewController {
         userGender.text = user.gender
         userType.text = user.type
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

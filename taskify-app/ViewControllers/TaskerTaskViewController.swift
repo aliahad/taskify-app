@@ -33,6 +33,7 @@ class TaskerTaskViewController: UIViewController, UITableViewDataSource, UITable
         fetchTaskData(status: "CREATED")
     }
     
+    // Fetch task data from core data
     private func fetchTaskData(status: String? = nil, useEmail: Bool = false) {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
         
@@ -51,6 +52,7 @@ class TaskerTaskViewController: UIViewController, UITableViewDataSource, UITable
         
     }
     
+    // Event handler for value change in segmented control
     @IBAction func taskFilterChanged(_ sender: UISegmentedControl) {
         let selectedIndex = taskFilterControl.selectedSegmentIndex
         
@@ -72,6 +74,7 @@ class TaskerTaskViewController: UIViewController, UITableViewDataSource, UITable
         return taskList.count
     }
     
+    // Update values of each cell in table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = taskTableView.dequeueReusableCell(withIdentifier: "TaskerTaskViewCell",
                                                      for: indexPath) as! TaskerTaskViewCell
@@ -93,6 +96,7 @@ class TaskerTaskViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    // Event handler for on click on cell of table
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (self.taskList[indexPath.row].status == "CREATED") {
             if let viewController = storyboard?.instantiateViewController(identifier: "ApplyTaskViewController") as?
@@ -104,21 +108,12 @@ class TaskerTaskViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    // Format date to string
     private func formatDate(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         
         return formatter.string(from: date)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

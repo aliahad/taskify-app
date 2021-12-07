@@ -34,7 +34,7 @@ class ProposalViewController: UIViewController {
         taskDescription.text = task?.detail
         taskNumOfHours.text = String(Int16(task!.hours))
         taskHourRate.text = String(Int16(task!.ratePerHour))
-//        taskLocation.text = task?.location?.name
+        taskLocation.text = "Waterloo"//task?.location?.name
         taskProposalFrom.text = taskProposal?.tasker?.name
         proposalDetails.text = taskProposal?.details
         taskStartDate.text = formatDate(date: (task?.startDate)!)

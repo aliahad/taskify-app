@@ -47,6 +47,7 @@ class AddTaskViewController: UIViewController {
         resetForm();
     }
     
+    // Event handler for adding a task
     @IBAction func addTask(_ sender: Any) {
         if (validate()) {
             let task = Task(context: self.context)
@@ -69,7 +70,6 @@ class AddTaskViewController: UIViewController {
                 try context.save()
                 self.view.showToast(toastMessage: "Task added successfully", duration: 2.0)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-//                    self.dismiss(animated: true, completion: nil)
                     self.navigationController?.popViewController(animated: true)
                 }
                 
@@ -80,6 +80,7 @@ class AddTaskViewController: UIViewController {
     
     }
     
+    // Fetching logged in user data
     private func fetchUser() -> User? {
         let email = Configs.loggedInUserEmail
         
@@ -98,6 +99,7 @@ class AddTaskViewController: UIViewController {
         }
     }
     
+    // Reset form
     private func resetForm() {
         taskTitle.text = ""
         taskDetail.text = ""
@@ -107,6 +109,7 @@ class AddTaskViewController: UIViewController {
         resetErrors()
     }
     
+    // Reset errors on form
     private func resetErrors() {
         taskDetailErrorLabel.text = ""
         taskDetailErrorLabel.isHidden = true
@@ -124,6 +127,7 @@ class AddTaskViewController: UIViewController {
         taskStartDateErrorLabel.isHidden = true
     }
     
+    // Validate form inputs
     private func validate() -> Bool {
         resetErrors()
         
@@ -168,6 +172,7 @@ class AddTaskViewController: UIViewController {
         return isValid
     }
     
+    // Validate number of hours input
     private func ValidateHour() -> Bool {
         let pattern = #"^\d+$"#
         
@@ -179,6 +184,7 @@ class AddTaskViewController: UIViewController {
         return (result != nil)
     }
     
+    // Validate pay per hour input
     private func ValidatePay() -> Bool {
         let pattern = #"^\d+$"#
         
@@ -194,15 +200,5 @@ class AddTaskViewController: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
