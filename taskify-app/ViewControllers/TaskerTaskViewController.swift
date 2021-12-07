@@ -25,18 +25,20 @@ class TaskerTaskViewController: UIViewController, UITableViewDataSource, UITable
         taskTableView.delegate = self
         taskTableView.dataSource = self
         
-        fetchTaskData()
+        fetchTaskData(status: "CREATED")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchTaskData()
+        fetchTaskData(status: "CREATED")
     }
     
-    private func fetchTaskData(status: String? = nil) {
+    private func fetchTaskData(status: String? = nil, useEmail: Bool = false) {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
         
-        if (status != nil) {
+        if (status != nil && useEmail) {
+            request.predicate = NSPredicate(format: "status == %@ AND tasker.email == %@", status!, Configs.loggedInUserEmail)
+        } else if (status != nil) {
             request.predicate = NSPredicate(format: "status == %@", status!)
         }
         
@@ -58,9 +60,9 @@ class TaskerTaskViewController: UIViewController, UITableViewDataSource, UITable
         case 1:
             fetchTaskData(status: "PENDING")
         case 2:
-            fetchTaskData(status: "IN_PROGRESS")
+            fetchTaskData(status: "IN_PROGRESS", useEmail: true)
         case 3:
-            fetchTaskData(status: "COMPLETED")
+            fetchTaskData(status: "COMPLETED", useEmail: true)
         default:
             fetchTaskData(status: "CREATED")
         }
@@ -92,12 +94,14 @@ class TaskerTaskViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let viewController = storyboard?.instantiateViewController(identifier: "ApplyTaskViewController") as?
-            ApplyTaskViewController{
-                viewController.task = self.taskList[indexPath.row]
-            
-                self.navigationController?.pushViewController(viewController, animated: true)
-            }
+        if (self.taskList[indexPath.row].status == "CREATED") {
+            if let viewController = storyboard?.instantiateViewController(identifier: "ApplyTaskViewController") as?
+                ApplyTaskViewController{
+                    viewController.task = self.taskList[indexPath.row]
+                
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+        }
     }
     
     private func formatDate(date: Date) -> String {
