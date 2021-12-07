@@ -35,6 +35,16 @@ class ApplyTaskViewController: UIViewController {
         taskStartDate.text = formatDate(date: (task?.startDate)!)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     @IBAction func submitProposal(_ sender: UIButton) {
         
         let taskProposal = TaskProposal(context: context)
