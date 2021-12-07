@@ -2,7 +2,7 @@
 //  TaskerProfileEditViewController.swift
 //  taskify-app
 //
-//  Created by user198241 on 12/7/21.
+//  Created by Jignesh Kumavat
 //
 
 import UIKit
@@ -43,10 +43,12 @@ class TaskerProfileEditViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    // Initialize the form
     func initialize() {
         resetForm();
     }
     
+    // Fetch loggedin user data from core data
     private func fetchUserData() {
         let email = Configs.loggedInUserEmail
         
@@ -63,6 +65,7 @@ class TaskerProfileEditViewController: UIViewController {
         
     }
     
+    // Populate data on UI from core data
     private func populateData(user: User) {
         if(user != nil){
             userName.text = user.name
@@ -73,6 +76,7 @@ class TaskerProfileEditViewController: UIViewController {
         
     }
     
+    // Event handler for update user profile
     @IBAction func updateProfile(_ sender: Any) {
         if(validate()){
             let email = Configs.loggedInUserEmail
@@ -104,14 +108,10 @@ class TaskerProfileEditViewController: UIViewController {
     }
     
     private func resetForm() {
-//        userName.text = ""
-//        userEmail.text = ""
-//        userPassword.text = ""
-//        userContact.text = ""
-        
         resetErrors()
     }
     
+    // Reset errors on form
     private func resetErrors() {
         userNameErrorLabel.text = ""
         userNameErrorLabel.isHidden = true
@@ -126,6 +126,7 @@ class TaskerProfileEditViewController: UIViewController {
         userContactErrorLabel.isHidden = true
     }
     
+    // Validate user input
     private func validate() -> Bool {
         resetErrors()
         
@@ -172,6 +173,7 @@ class TaskerProfileEditViewController: UIViewController {
         return isValid
     }
     
+    // Validate user email
     private func validateEmail() -> Bool {
         let emailPattern = #"^\S+@\S+\.\S+$"#
         
@@ -183,6 +185,7 @@ class TaskerProfileEditViewController: UIViewController {
         return (result != nil)
     }
     
+    // Validate user contact
     private func validateContact() -> Bool {
         let contactPattern = #"^\(?\d{3}\)?[ -]?\d{3}[ -]?\d{4}$"#
         
@@ -198,15 +201,5 @@ class TaskerProfileEditViewController: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

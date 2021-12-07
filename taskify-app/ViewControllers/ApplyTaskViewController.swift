@@ -53,6 +53,7 @@ class ApplyTaskViewController: UIViewController {
         view.endEditing(true)
     }
     
+    // Event handler for submitting proposal for a task
     @IBAction func submitProposal(_ sender: UIButton) {
         
         let taskProposal = TaskProposal(context: context)
@@ -82,6 +83,7 @@ class ApplyTaskViewController: UIViewController {
         }
     }
     
+    // Fetching logged in user data from core data
     private func fetchUser() -> User? {
         let request: NSFetchRequest<User> = User.fetchRequest()
         request.fetchLimit = 1
@@ -96,6 +98,7 @@ class ApplyTaskViewController: UIViewController {
         }
     }
     
+    // Format date to string
     private func formatDate(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .short

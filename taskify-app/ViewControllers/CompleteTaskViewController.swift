@@ -30,7 +30,7 @@ class CompleteTaskViewController: UIViewController {
         taskDescription.text = task?.detail
         taskNumOfHours.text = String(Int16(task!.hours))
         taskHourRate.text = String(Int16(task!.ratePerHour))
-//        taskLocation.text = task?.location?.name
+        taskLocation.text = "Waterloo"//task?.location?.name
         taskStartDate.text = formatDate(date: (task?.startDate)!)
         tasker.text = task?.requester?.name
         
@@ -53,6 +53,7 @@ class CompleteTaskViewController: UIViewController {
         view.endEditing(true)
     }
     
+    // Event handler for completing task
     @IBAction func completeTask(_ sender: UIButton) {
         
         let rating = ratingControl.selectedSegmentIndex + 1
@@ -82,6 +83,7 @@ class CompleteTaskViewController: UIViewController {
         }
     }
     
+    // Format date to string
     private func formatDate(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
