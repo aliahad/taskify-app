@@ -13,19 +13,23 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var taskTableView: UITableView!
     @IBOutlet weak var taskFilterControl: UISegmentedControl!
     
+    //task and proposal List
     var taskList: [Task] = []
     var proposalList: [TaskProposal] = []
     
+    //context for coredata
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //registring NIB for table view cell
         let nib = UINib(nibName: "RequesterTaskViewCell", bundle: nil)
         taskTableView.register(nib, forCellReuseIdentifier: "RequesterTaskViewCell")
         taskTableView.delegate = self
         taskTableView.dataSource = self
         
+        //fetching tasks based on status
         fetchTaskData(status: "CREATED")
     }
     
@@ -34,6 +38,7 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         fetchTaskData(status: "CREATED")
     }
     
+    //getting tasks based on status
     private func fetchTaskData(status: String? = nil) {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
         
@@ -49,6 +54,7 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
+    //getting proposals based on status
     private func fetchProposalData(status: String? = nil) {
         let request: NSFetchRequest<TaskProposal> = TaskProposal.fetchRequest()
         
@@ -64,6 +70,7 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
+    //Event handler for detecing change in filer selection
     @IBAction func taskFilterChanged(_ sender: UISegmentedControl) {
         let selectedIndex = taskFilterControl.selectedSegmentIndex
         
@@ -111,6 +118,7 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
     
+    //event for clicking on cell row on table
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (taskFilterControl.selectedSegmentIndex == 1) {
             if let viewController = storyboard?.instantiateViewController(identifier: "ProposalViewController") as?

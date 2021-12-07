@@ -47,6 +47,7 @@ class EditProfileViewController: UIViewController {
         resetForm();
     }
     
+    //fetching user details for currently logged in user
     private func fetchUserData() {
         let email = Configs.loggedInUserEmail
         
@@ -63,6 +64,7 @@ class EditProfileViewController: UIViewController {
         
     }
     
+    //populate fields with user data
     private func populateData(user: User) {
         if(user != nil){
             userName.text = user.name
@@ -73,6 +75,7 @@ class EditProfileViewController: UIViewController {
         
     }
     
+    //event handler for updating profile
     @IBAction func updateProfile(_ sender: Any) {
         if(validate()){
             let email = Configs.loggedInUserEmail
@@ -103,15 +106,12 @@ class EditProfileViewController: UIViewController {
         
     }
     
+    //resetting form and errors
     private func resetForm() {
-//        userName.text = ""
-//        userEmail.text = ""
-//        userPassword.text = ""
-//        userContact.text = ""
-        
         resetErrors()
     }
     
+    //resetting errors messages on the form
     private func resetErrors() {
         userNameErrorLabel.text = ""
         userNameErrorLabel.isHidden = true
@@ -126,6 +126,7 @@ class EditProfileViewController: UIViewController {
         userContactErrorLabel.isHidden = true
     }
     
+    //validator for validationg fields
     private func validate() -> Bool {
         resetErrors()
         
@@ -172,6 +173,7 @@ class EditProfileViewController: UIViewController {
         return isValid
     }
     
+    //vaidating email via Regex
     private func validateEmail() -> Bool {
         let emailPattern = #"^\S+@\S+\.\S+$"#
         
@@ -182,7 +184,7 @@ class EditProfileViewController: UIViewController {
         
         return (result != nil)
     }
-    
+    //Event handler for validating contact via regex
     private func validateContact() -> Bool {
         let contactPattern = #"^\(?\d{3}\)?[ -]?\d{3}[ -]?\d{4}$"#
         

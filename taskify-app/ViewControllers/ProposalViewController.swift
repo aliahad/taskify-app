@@ -2,11 +2,13 @@
 //  ProposalViewController.swift
 //  taskify-app
 //
-//  Created by Niraj Sutariya
+//  Created by Sohail Shiraj
 //
 
 import UIKit
 import CoreData
+
+//view controller Class for accepting/rejecting proposals
 
 class ProposalViewController: UIViewController {
 
@@ -38,16 +40,19 @@ class ProposalViewController: UIViewController {
         taskStartDate.text = formatDate(date: (task?.startDate)!)
     }
     
+    //Hiding navigation bar on this screen
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    //Show navigation bar once out of screen
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    //Event handler for accepting proposal
     @IBAction func acceptProposal(_ sender: UIButton) {
         taskProposal?.status = "ACCEPTED"
         taskProposal?.task?.status = "IN_PROGRESS"
@@ -64,6 +69,7 @@ class ProposalViewController: UIViewController {
         }
     }
     
+    //Event handler for declining proposal from tasker
     @IBAction func declineProposal(_ sender: UIButton) {
         taskProposal?.status = "DECLINED"
         taskProposal?.task?.status = "CREATED"

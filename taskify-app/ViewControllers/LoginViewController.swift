@@ -28,10 +28,12 @@ class LoginViewController: UIViewController {
         initialize();
     }
     
+    //Initialize form
     func initialize() {
         resetForm();
     }
     
+    //event handler for login button
     @IBAction func loginUser(_ sender: Any) {
         if(validate()){
             let email = userEmail.text
@@ -62,6 +64,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    //reset form fields
     private func resetForm() {
         userEmail.text = ""
         userPassword.text = ""
@@ -69,6 +72,7 @@ class LoginViewController: UIViewController {
         resetErrors()
     }
     
+    //reset errors
     private func resetErrors() {
         userEmailErrorLabel.text = ""
         userEmailErrorLabel.isHidden = true
@@ -77,6 +81,7 @@ class LoginViewController: UIViewController {
         userPasswordErrorLabel.isHidden = true
     }
     
+    //validate fields
     private func validate() -> Bool {
         resetErrors()
         
@@ -104,6 +109,7 @@ class LoginViewController: UIViewController {
         return isValid
     }
     
+    //validator for email
     private func validateEmail() -> Bool {
         let emailPattern = #"^\S+@\S+\.\S+$"#
         
@@ -115,6 +121,7 @@ class LoginViewController: UIViewController {
         return (result != nil)
     }
         
+    //dismissing keyboard
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)

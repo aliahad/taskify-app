@@ -31,6 +31,7 @@ class TaskerDashboardViewController: UIViewController {
         completedTasksCount.text = fetchTasksCount(status: "COMPLETED")
     }
     
+    //getting tasks based on status
     private func fetchTasksCount(status: String) -> String {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
         request.predicate = NSPredicate(format: "status == %@ AND requester.email = %@", status, Configs.loggedInUserEmail)
