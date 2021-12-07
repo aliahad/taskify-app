@@ -33,9 +33,6 @@ class ApplyTaskViewController: UIViewController {
         taskHourRate.text = String(Int16(task!.ratePerHour))
         taskPostedBy.text = task?.requester?.name
         taskStartDate.text = formatDate(date: (task?.startDate)!)
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
     }
     
     @IBAction func submitProposal(_ sender: UIButton) {
@@ -82,11 +79,6 @@ class ApplyTaskViewController: UIViewController {
         formatter.dateStyle = .short
         
         return formatter.string(from: date)
-    }
-    
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
     }
 
 }
