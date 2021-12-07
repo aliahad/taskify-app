@@ -32,11 +32,11 @@ class SignUpViewController: UIViewController {
         
         initialize();
     }
-    
+    //Initialize the form
     func initialize() {
         resetForm();
     }
-    
+    //Event handler for register button
     @IBAction func registerUser(_ sender: Any) {
         if (validate()) {
             let user = User(context: self.context)
@@ -56,7 +56,7 @@ class SignUpViewController: UIViewController {
             }
         }
     }
-    
+    //Resetting form fields
     private func resetForm() {
         userName.text = ""
         userEmail.text = ""
@@ -65,7 +65,7 @@ class SignUpViewController: UIViewController {
         
         resetErrors()
     }
-    
+    //Resetting all the errors
     private func resetErrors() {
         userNameErrorLabel.text = ""
         userNameErrorLabel.isHidden = true
@@ -80,6 +80,7 @@ class SignUpViewController: UIViewController {
         userContactErrorLabel.isHidden = true
     }
     
+    //Validate inputs
     private func validate() -> Bool {
         resetErrors()
         
@@ -126,6 +127,7 @@ class SignUpViewController: UIViewController {
         return isValid
     }
     
+    //validate email via regex
     private func validateEmail() -> Bool {
         let emailPattern = #"^\S+@\S+\.\S+$"#
         
@@ -137,6 +139,7 @@ class SignUpViewController: UIViewController {
         return (result != nil)
     }
     
+    //validate contact via regex
     private func validateContact() -> Bool {
         let contactPattern = #"^\(?\d{3}\)?[ -]?\d{3}[ -]?\d{4}$"#
         
@@ -148,6 +151,7 @@ class SignUpViewController: UIViewController {
         return (result != nil)
     }
     
+    //dismiss keyboard
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)

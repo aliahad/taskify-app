@@ -32,6 +32,7 @@ class ProfileViewController: UIViewController {
         fetchUserData()
     }
     
+    //fetchning user details with email from coredata
     private func fetchUserData() {
         let email = Configs.loggedInUserEmail
         
@@ -48,6 +49,7 @@ class ProfileViewController: UIViewController {
         
     }
     
+    //populate labels with user data
     private func populateData(user: User) {
         userName.text = user.name
         userEmail.text = user.email
