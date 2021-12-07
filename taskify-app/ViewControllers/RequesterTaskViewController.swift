@@ -13,7 +13,8 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var taskTableView: UITableView!
     @IBOutlet weak var taskFilterControl: UISegmentedControl!
     
-    var taskList: [Task] = [];
+    var taskList: [Task] = []
+    var proposalList: [TaskProposal] = []
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -25,19 +26,19 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         taskTableView.delegate = self
         taskTableView.dataSource = self
         
-        fetchTaskData()
+        fetchTaskData(status: "CREATED")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchTaskData()
+        fetchTaskData(status: "CREATED")
     }
     
     private func fetchTaskData(status: String? = nil) {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
         
         if (status != nil) {
-            request.predicate = NSPredicate(format: "status == %@", status!)
+            request.predicate = NSPredicate(format: "status == %@ AND requester.email == %@", status!, Configs.loggedInUserEmail)
         }
         
         do {
@@ -46,7 +47,21 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         } catch {
             print ("Error getting user")
         }
+    }
+    
+    private func fetchProposalData(status: String? = nil) {
+        let request: NSFetchRequest<TaskProposal> = TaskProposal.fetchRequest()
         
+        if (status != nil) {
+            request.predicate = NSPredicate(format: "status == %@ AND task.status == %@ AND task.requester.email == %@", "PENDING", "PENDING", Configs.loggedInUserEmail)
+        }
+        
+        do {
+            self.proposalList = try context.fetch(request)
+            self.taskTableView.reloadData()
+        } catch {
+            print ("Error getting user")
+        }
     }
     
     @IBAction func taskFilterChanged(_ sender: UISegmentedControl) {
@@ -56,7 +71,7 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         case 0:
             fetchTaskData(status: "CREATED")
         case 1:
-            fetchTaskData(status: "PENDING")
+            fetchProposalData(status: "PENDING")
         case 2:
             fetchTaskData(status: "IN_PROGRESS")
         case 3:
@@ -67,23 +82,29 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return taskList.count
+        if taskFilterControl.selectedSegmentIndex == 1 {
+            return proposalList.count
+        } else {
+            return taskList.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = taskTableView.dequeueReusableCell(withIdentifier: "RequesterTaskViewCell",
                                                      for: indexPath) as! RequesterTaskViewCell
         
-        //GetData and place it in xib file
+        var task: Task? = nil
+        if taskFilterControl.selectedSegmentIndex == 1 {
+            task = proposalList[indexPath.row].task
+        } else {
+            task = taskList[indexPath.row]
+        }
         
-        let task = self.taskList[indexPath.row]
-        cell.taskTitle.text = task.title
-        cell.taskDescription.text = task.detail
-        cell.taskHourRate.text = String(task.ratePerHour)
-        cell.taskNumOfHours.text = String(task.hours)
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        cell.taskDate.text = formatter.string(from: task.startDate!)
+        cell.taskTitle.text = task?.title
+        cell.taskDescription.text = task?.detail
+        cell.taskHourRate.text = String(task!.ratePerHour)
+        cell.taskNumOfHours.text = String(task!.hours)
+        cell.taskDate.text = formatDate(date: (task?.startDate!)!)
         
         //add styling
         self.taskTableView.rowHeight = 85.0
@@ -91,9 +112,16 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (self.taskList[indexPath.row].status == "PENDING") {
+        if (taskFilterControl.selectedSegmentIndex == 1) {
             if let viewController = storyboard?.instantiateViewController(identifier: "ProposalViewController") as?
                 ProposalViewController{
+                    viewController.taskProposal = self.proposalList[indexPath.row]
+                
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+        } else if (self.taskList[indexPath.row].status == "IN_PROGRESS") {
+            if let viewController = storyboard?.instantiateViewController(identifier: "CompleteTaskViewController") as?
+                CompleteTaskViewController{
                     viewController.task = self.taskList[indexPath.row]
                 
                     self.navigationController?.pushViewController(viewController, animated: true)
@@ -107,16 +135,5 @@ class RequesterTaskViewController: UIViewController, UITableViewDataSource, UITa
         
         return formatter.string(from: date)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

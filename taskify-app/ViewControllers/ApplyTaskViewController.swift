@@ -28,7 +28,7 @@ class ApplyTaskViewController: UIViewController {
         super.viewDidLoad()
 
         taskTitle.text = task?.title
-        taskDescription.text = task?.detail
+        taskDescription.text = task?.description
         taskNumOfHours.text = String(Int16(task!.hours))
         taskHourRate.text = String(Int16(task!.ratePerHour))
         taskPostedBy.text = task?.requester?.name
@@ -36,16 +36,6 @@ class ApplyTaskViewController: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     @IBAction func submitProposal(_ sender: UIButton) {
@@ -98,15 +88,5 @@ class ApplyTaskViewController: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

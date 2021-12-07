@@ -1,14 +1,13 @@
 //
-//  ProposalViewController.swift
+//  CompleteTaskViewController.swift
 //  taskify-app
 //
-//  Created by Niraj Sutariya
+//  Created by Ali Ahad
 //
 
 import UIKit
-import CoreData
 
-class ProposalViewController: UIViewController {
+class CompleteTaskViewController: UIViewController {
 
     @IBOutlet weak var taskTitle: UILabel!
     @IBOutlet weak var taskDescription: UILabel!
@@ -16,42 +15,43 @@ class ProposalViewController: UIViewController {
     @IBOutlet weak var taskHourRate: UILabel!
     @IBOutlet weak var taskLocation: UILabel!
     @IBOutlet weak var taskStartDate: UILabel!
-    @IBOutlet weak var taskProposalFrom: UILabel!
-    @IBOutlet weak var proposalDetails: UILabel!
+    @IBOutlet weak var tasker: UILabel!
+    @IBOutlet weak var ratingControl: UISegmentedControl!
+    @IBOutlet weak var feedback: UITextField!
     
-    var taskProposal: TaskProposal?
+    var task: Task? = nil
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let task = taskProposal?.task
-        
         taskTitle.text = task?.title
         taskDescription.text = task?.description
         taskNumOfHours.text = String(Int16(task!.hours))
         taskHourRate.text = String(Int16(task!.ratePerHour))
         taskLocation.text = task?.location?.name
-        taskProposalFrom.text = taskProposal?.tasker?.name
         taskStartDate.text = formatDate(date: (task?.startDate)!)
+        tasker.text = task?.requester?.name
     }
     
-    @IBAction func acceptProposal(_ sender: UIButton) {
-        taskProposal?.status = "ACCEPTED"
-        taskProposal?.task?.status = "IN_PROGRESS"
-        taskProposal?.task?.tasker = taskProposal?.tasker
+    @IBAction func completeTask(_ sender: UIButton) {
+        
+        let rating = ratingControl.selectedSegmentIndex + 1
+        
+        let taskFeedback = TaskFeedback(context: context)
+        taskFeedback.rating = Int16(rating)
+        taskFeedback.review = feedback.text
+        taskFeedback.date = Date()
+        taskFeedback.task = task
         
         do {
             try context.save()
         } catch {
-            print("Error while updating task")
+            print("Error while saving task feedback")
         }
-    }
-    
-    @IBAction func declineProposal(_ sender: UIButton) {
-        taskProposal?.status = "DECLINED"
-        taskProposal?.task?.status = "CREATED"
+        
+        task?.status = "COMPLETED"
         
         do {
             try context.save()
@@ -66,5 +66,4 @@ class ProposalViewController: UIViewController {
         
         return formatter.string(from: date)
     }
-
 }
