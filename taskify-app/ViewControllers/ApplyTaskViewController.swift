@@ -28,7 +28,7 @@ class ApplyTaskViewController: UIViewController {
         super.viewDidLoad()
 
         taskTitle.text = task?.title
-        taskDescription.text = task?.description
+        taskDescription.text = task?.detail
         taskNumOfHours.text = String(Int16(task!.hours))
         taskHourRate.text = String(Int16(task!.ratePerHour))
         taskPostedBy.text = task?.requester?.name
